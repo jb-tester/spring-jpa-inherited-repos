@@ -18,10 +18,18 @@ public class SomeEntityService {
     }
 
     public void testQuery() {
+        System.out.println("====== inherited and overrided query:  =====");
         Integer id = someEntityRepository.findAll().get(0).getId();
         System.out.println(id);
-        System.out.println(someEntityRepository.findAEntityByIdForModification(id));
+        System.out.println(someEntityRepository.findAnEntityByIdForModification(id));
     }
 
+    public void testQuery2() {
+        System.out.println("====== inherited query: =====");
+        someEntityRepository.findAnEntityIds().forEach(System.out::println);
+        System.out.println("===================");
+    }
+
+    ;
 
 }

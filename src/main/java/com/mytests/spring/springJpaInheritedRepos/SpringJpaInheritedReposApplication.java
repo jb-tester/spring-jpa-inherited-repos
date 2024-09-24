@@ -12,11 +12,14 @@ public class SpringJpaInheritedReposApplication {
         SpringApplication.run(SpringJpaInheritedReposApplication.class, args);
     }
  @Bean
-     public CommandLineRunner commandLineRunner(SomeEntityService someEntityService ) {
+     public CommandLineRunner commandLineRunner(SomeEntityService someEntityService, AnotherEntityService anotherEntityService ) {
          return args -> {
              System.out.println("--------------------------------------");
              someEntityService.populateDB();
              someEntityService.testQuery();
+             someEntityService.testQuery2();
+             anotherEntityService.populateDB();
+             anotherEntityService.testQuery();
              System.out.println("--------------------------------------");
          };
      }
